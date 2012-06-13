@@ -1,0 +1,19 @@
+<Asx Version = "3.0" > 
+<Param Name = "Name" Value = "Playlist3" />
+
+<Param Name = "AllowShuffle" Value = "yes" />
+
+<Entry> 
+<Title > flute2</Title>
+
+<Duration value = "00:00:30.414" />
+
+<Param Name = "MediaType" Value = "audio" />
+
+<Param Name = "Is_Trusted" Value = "false" />
+
+<Param Name = "Is_Protected" Value = "false" />
+
+<Ref href = "http://www.echoespast.com/flute2.wav"/>
+</Entry>
+</Asx>

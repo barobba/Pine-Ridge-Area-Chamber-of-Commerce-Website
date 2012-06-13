@@ -1,0 +1,28 @@
+From: [Email]
+To: pracc@gwtc.net
+Subject: Reservation Visitor Survey
+
+Reservation Visitor Survey:
+
+[Indicate Gender]
+[Age Category]
+[Describe Employment Status]
+[State or Country]
+[Reason for Visiting]
+[Reason for Visiting Category]
+[Reason for Visiting En Route]
+[First Visit]
+[How Much Visits]
+[Date of Last Visit]
+[Date of Last Visit Month]
+[Date of Last Visit Year]
+[Overall Visitor Experience]
+[Tourism Info Requested]
+[Info Requested From}
+[Locate Info Internet]
+[Websites Used]
+[Quality of Info Rated]
+[Why Rate the Quality]
+[Visit PRACC]
+[Overall Impression of Pracc]
+[Overall Res Visit Explained] 

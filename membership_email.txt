@@ -1,0 +1,19 @@
+From: [Email]
+To: pracc@gwtc.net
+Subject: Membership_Email
+
+Here's a Membership Application:
+
+[Name of Business]
+[Contact Person]
+[Mailing Address]
+[City]
+[State]
+[Zip Code]
+[Phone]
+[Fax]
+[Email]
+[Website]
+[Primary Category of Business]
+[Native American Owned]
+[Number of Employees]
