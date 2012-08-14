@@ -1,2 +1,3 @@
 AddHandler cgi-script2 .cvw
 AddHandler cgi-script .cvw
+AddType application/x-httpd-php .html

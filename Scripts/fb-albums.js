@@ -9,18 +9,33 @@ window.fbAsyncInit = function() {
     xfbml      : true  // parse XFBML
   });
   
+  fbAlbums();
+  fbAlbum();
+  
+};
+
+(function(d){
+  //Load the SDK Asynchronously
+  var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement('script'); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js";
+  ref.parentNode.insertBefore(js, ref);
+}(document));
+
+function fbAlbums() {
   // Display the album
   $('.fb-albums').each(function(index, element){
-
+    
     var entityID = $(element).attr('id');
     var container = '#' + entityID;
     FB.api(entityID + '/albums', function(fbAlbums){
-      
+
       // Tabs
       var tabContents = [];
 
       // Entity albums
-      $(container + ' .graceful').empty();
+      $(container + ' .graceful').remove();
       
       var albums = [];
       for (albumIdx in fbAlbums.data) {
@@ -37,7 +52,7 @@ window.fbAsyncInit = function() {
         
         // Each album
         var album = albums[albumIdx];
-        var template = $($('#fb-album-template').html());
+        var template = $($('#fb-albums-template').html());
         template.find('.fb-album-name').html(album.name);
         template.find('.fb-album-cover-photo').attr('id', album.cover_photo);
         template.find('.fb-link').attr('href', album.link);
@@ -75,16 +90,33 @@ window.fbAsyncInit = function() {
       
     });
   });
-};
+  
+}
 
-(function(d){
-  //Load the SDK Asynchronously
-  var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement('script'); js.id = id; js.async = true;
-  js.src = "//connect.facebook.net/en_US/all.js";
-  ref.parentNode.insertBefore(js, ref);
-}(document));
+function fbAlbum() {
+  // Display the album
+  $('.fb-album .graceful').remove();
+  $('.fb-album').each(function(index, element){
+    var albumID = $(element).attr('id');
+    fbAlbumHelper(albumID + '/photos', albumID);
+  });
+}
+
+function fbAlbumHelper(graphCall, albumID) {
+  FB.api(graphCall, function(response){
+    for (photoIdx in response.data) {
+      var photo = response.data[photoIdx];
+      var picture = $($('#fb-album-template').html());
+      $(picture).find('.fb-link').attr('href', photo.link);
+      $(picture).find('.fb-photo').attr('src', photo.images[6].source);
+      $(picture).find('.fb-photo-name').html(photo.name);
+       $('#' + albumID).append(picture);
+    }
+    if (response.paging.next) {
+      fbAlbumHelper(response.paging.next, albumID);
+    }
+  });
+}
 
 /**
  * 
