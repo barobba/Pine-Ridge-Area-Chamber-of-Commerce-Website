@@ -24,6 +24,7 @@ window.fbAsyncInit = function() {
 }(document));
 
 function fbAlbums() {
+  
   // Display the album
   $('.fb-albums').each(function(index, element){
     
@@ -124,20 +125,28 @@ function fbAlbumHelper(graphCall, albumID) {
  * @returns
  */
 function tabElement (tabData, prefix) {
-  
-  var labels = '<ul>';
-  var content = '';
+
+  // Labels
+  var labels = '<ul><div class="pages">Pages:</div>';
   for (tabIndex in tabData) {
     var tabId = prefix + '-' + tabIndex;
     var section = tabData[tabIndex];
     labels += '<li><a href="#' + tabId + '">' + section.tab + '</a></li>';
-    content += '<div id="' + tabId + '" class="clearfix">' + section.panel + '</div>';
   }
   labels += '</ul>';
-  
+
+  // Content
+  var content = '';
+  for (tabIndex in tabData) {
+    var tabId = prefix + '-' + tabIndex;
+    var section = tabData[tabIndex];
+    content += '<div id="' + tabId + '" class="clearfix">' + section.panel + '</div>';
+  }
+
+  // Tabs container
   var containerId = prefix + '-' + 'tabs';
-  content = '<div id="' + containerId + '">' + labels + content + '</div>';
+  var container = '<div id="' + containerId + '">' + content + labels + '</div>';
   
-  return content;
+  return container;
   
 }
