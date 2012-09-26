@@ -145,7 +145,7 @@ function tabElement (tabData, prefix) {
 
   // Tabs container
   var containerId = prefix + '-' + 'tabs';
-  var container = '<div id="' + containerId + '">' + content + labels + '</div>';
+  var container = '<div id="' + containerId + '">' + labels + content + '</div>';
   
   return container;
   
