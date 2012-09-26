@@ -110,7 +110,12 @@ function fbAlbumHelper(graphCall, albumID) {
       var picture = $($('#fb-album-template').html());
       $(picture).find('.fb-link').attr('href', photo.link);
       $(picture).find('.fb-photo').attr('src', photo.images[6].source);
-      $(picture).find('.fb-photo-name').html(photo.name);
+      if (photo.name != undefined) {
+        $(picture).find('.fb-photo-name').html(photo.name);
+      }
+      else {
+        $(picture).find('.fb-photo-name').remove();
+      }
        $('#' + albumID).append(picture);
     }
     if (response.paging.next) {
